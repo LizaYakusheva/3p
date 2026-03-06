@@ -1,4 +1,5 @@
-<!doctype html>
+@php use App\Services\CartService; @endphp
+    <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,6 +24,7 @@
                     <li class="nav-item"><a href="{{route('login')}}" class="nav-link active">Войти</a></li>
                 @endguest
                 @auth
+                    <li class="nav-item"><a href="{{route('cart')}}" class="nav-link">Корзина (<span class="cart-count">{{CartService::sum()['count']}}</span>)</a></li>{{-- статические методы вызываются через ::   --}}
                     <li class="nav-item"><a href="{{route('cabinet')}}" class="nav-link">Личный кабинет</a></li>
                     <li class="nav-item"><a href="{{route('logout')}}" class="nav-link active">Выйти</a></li>
                 @endauth
@@ -56,6 +58,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/script.js?t={{time()}}"></script>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
     <h3>Практики</h3>
     <div class="row gy-5 ">
         @foreach($events as $event)
-            @include('parts.event', ['event' => $event])
+            @include('parts.event', ['eventShow' => $event])
         @endforeach
     </div>
 
@@ -12,7 +12,7 @@
     <h3>Преподаватели</h3>
     <div class="row gy-5 ">
         @foreach($teachers as $teacher)
-            @include('parts.teacher', ['teacher' => $teacher])
+            @include('parts.teacher', ['teacherShow' => $teacher])
         @endforeach
     </div>
 
@@ -36,7 +36,16 @@
 
     <br>
 
-    <form method="post" action="{{route('application')}}" style="background: blanchedalmond; border-radius: 20px; padding: 20px">
+    <h3>Товары</h3>
+    <div class="row gy-5">
+        @foreach($products as $product)
+            @include('parts.product')
+        @endforeach
+    </div>
+    <br>
+
+    <form method="post" action="{{route('application')}}"
+          style="background: blanchedalmond; border-radius: 20px; padding: 20px">
         @csrf
         <h3>Оставить заявку</h3>
         <div class="mb-3 w-25">
@@ -74,13 +83,13 @@
         </div>
     </form>
 
-    <form method="post" class="row g-3">
+    <form method="post" action="{{route('reviews')}}" class="row g-3">
         @csrf
         <h2 class=" mt-5">Оставить отзыв</h2>
         <div class="mb-3">
             <textarea name="description" placeholder="Описание" class="w-25"></textarea>
         </div>
-        <select class="form-select w-25">
+        <select name="rating" class="form-select w-25">
             <option selected>Оценить</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -89,16 +98,12 @@
             <option value="5">5</option>
         </select>
         <div class="mb-3">
-        <input type="submit" value="Отправить" class="btn btn-primary">
+            <input type="submit" value="Отправить" class="btn btn-primary">
         </div>
     </form>
 
     <h3>Отзывы</h3>
-    @forelse($reviews as $review)
-        @for($i = 1; $i <= $review->rating; $i++)
-            ⭐
-        @endfor
-    @empty
-        <p>Еще нет отзывов</p>
-    @endforelse
+    <div class="row gy-5 ">
+        @include('parts.review')
+    </div>
 @endsection

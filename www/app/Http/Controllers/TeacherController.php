@@ -12,7 +12,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.teachers.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.teachers.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class TeacherController extends Controller
     public function show(string $id)
     {
         $teacher = Teacher::find($id);
-        return view('teacher', [
+        return view('teacherShow', [
            'teacher' => $teacher,
         ]);
     }
@@ -47,7 +47,7 @@ class TeacherController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.teachers.edit');
     }
 
     /**

@@ -76,6 +76,11 @@ class User extends Authenticatable
         return $this->hasMany(Review::class);
     }
 
+    public function cart()
+    {
+        return $this->belongsToMany(Product::class, 'carts')->withPivot('count');// withPivot() ждя указания столбцов которые мы хотим дополнительно задействоать чтоб через метод attach передавать не только Id но и двумерные массивы
+    }
+
     public function order()
     {
         return $this->hasMany(Order::class);

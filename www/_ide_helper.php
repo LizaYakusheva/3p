@@ -1165,7 +1165,7 @@ namespace Illuminate\Support\Facades {
                         $instance->alias($abstract, $alias);
         }
                     /**
-         * Bind a new callback to an abstract's rebind event.
+         * Bind a new callback to an abstract's rebind events.
          *
          * @param string $abstract
          * @param \Closure $callback
@@ -1980,7 +1980,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->logoutOtherDevices($password, $attribute);
         }
                     /**
-         * Register an authentication attempt event listener.
+         * Register an authentication attempt events listener.
          *
          * @param mixed $callback
          * @return void
@@ -2064,7 +2064,7 @@ namespace Illuminate\Support\Facades {
                         $instance->setCookieJar($cookie);
         }
                     /**
-         * Get the event dispatcher instance.
+         * Get the events dispatcher instance.
          *
          * @return \Illuminate\Contracts\Events\Dispatcher
          * @static
@@ -2074,7 +2074,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->getDispatcher();
         }
                     /**
-         * Set the event dispatcher instance.
+         * Set the events dispatcher instance.
          *
          * @param \Illuminate\Contracts\Events\Dispatcher $events
          * @return void
@@ -2722,7 +2722,7 @@ namespace Illuminate\Support\Facades {
             /**
      * @method static mixed auth(\Illuminate\Http\Request $request)
      * @method static mixed validAuthenticationResponse(\Illuminate\Http\Request $request, mixed $result)
-     * @method static void broadcast(array $channels, string $event, array $payload = [])
+     * @method static void broadcast(array $channels, string $events, array $payload = [])
      * @method static array|null resolveAuthenticatedUser(\Illuminate\Http\Request $request)
      * @method static void resolveAuthenticatedUserUsing(\Closure $callback)
      * @method static \Illuminate\Broadcasting\Broadcasters\Broadcaster channel(\Illuminate\Contracts\Broadcasting\HasBroadcastChannel|string $channel, callable|string $callback, array $options = [])
@@ -2777,7 +2777,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->socket($request);
         }
                     /**
-         * Begin broadcasting an event.
+         * Begin broadcasting an events.
          *
          * @param mixed|null $event
          * @return \Illuminate\Broadcasting\PendingBroadcast
@@ -2788,7 +2788,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->event($event);
         }
                     /**
-         * Queue the given event for broadcast.
+         * Queue the given events for broadcast.
          *
          * @param mixed $event
          * @return void
@@ -3419,7 +3419,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->repository($store);
         }
                     /**
-         * Re-set the event dispatcher on all resolved cache repositories.
+         * Re-set the events dispatcher on all resolved cache repositories.
          *
          * @return void
          * @static
@@ -3837,7 +3837,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->setStore($store);
         }
                     /**
-         * Get the event dispatcher instance.
+         * Get the events dispatcher instance.
          *
          * @return \Illuminate\Contracts\Events\Dispatcher
          * @static
@@ -3847,7 +3847,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->getEventDispatcher();
         }
                     /**
-         * Set the event dispatcher instance.
+         * Set the events dispatcher instance.
          *
          * @param \Illuminate\Contracts\Events\Dispatcher $events
          * @return void
@@ -5504,7 +5504,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->setPostProcessor($processor);
         }
                     /**
-         * Get the event dispatcher used by the connection.
+         * Get the events dispatcher used by the connection.
          *
          * @return \Illuminate\Contracts\Events\Dispatcher
          * @static
@@ -5514,7 +5514,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->getEventDispatcher();
         }
                     /**
-         * Set the event dispatcher instance on the connection.
+         * Set the events dispatcher instance on the connection.
          *
          * @param \Illuminate\Contracts\Events\Dispatcher $events
          * @return \Illuminate\Database\MySqlConnection
@@ -5525,7 +5525,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->setEventDispatcher($events);
         }
                     /**
-         * Unset the event dispatcher for this connection.
+         * Unset the events dispatcher for this connection.
          *
          * @return void
          * @static
@@ -5785,7 +5785,7 @@ namespace Illuminate\Support\Facades {
      * @see \Illuminate\Support\Testing\Fakes\EventFake
      */        class Event {
                     /**
-         * Register an event listener with the dispatcher.
+         * Register an events listener with the dispatcher.
          *
          * @param \Closure|string|array $events
          * @param \Closure|string|array|null $listener
@@ -5797,7 +5797,7 @@ namespace Illuminate\Support\Facades {
                         $instance->listen($events, $listener);
         }
                     /**
-         * Determine if a given event has listeners.
+         * Determine if a given events has listeners.
          *
          * @param string $eventName
          * @return bool
@@ -5808,7 +5808,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->hasListeners($eventName);
         }
                     /**
-         * Determine if the given event has any wildcard listeners.
+         * Determine if the given events has any wildcard listeners.
          *
          * @param string $eventName
          * @return bool
@@ -5819,7 +5819,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->hasWildcardListeners($eventName);
         }
                     /**
-         * Register an event and payload to be fired later.
+         * Register an events and payload to be fired later.
          *
          * @param string $event
          * @param object|array $payload
@@ -5842,7 +5842,7 @@ namespace Illuminate\Support\Facades {
                         $instance->flush($event);
         }
                     /**
-         * Register an event subscriber with the dispatcher.
+         * Register an events subscriber with the dispatcher.
          *
          * @param object|string $subscriber
          * @return void
@@ -5853,7 +5853,7 @@ namespace Illuminate\Support\Facades {
                         $instance->subscribe($subscriber);
         }
                     /**
-         * Fire an event until the first non-null response is returned.
+         * Fire an events until the first non-null response is returned.
          *
          * @param string|object $event
          * @param mixed $payload
@@ -5865,7 +5865,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->until($event, $payload);
         }
                     /**
-         * Fire an event and call the listeners.
+         * Fire an events and call the listeners.
          *
          * @param string|object $event
          * @param mixed $payload
@@ -5878,7 +5878,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->dispatch($event, $payload, $halt);
         }
                     /**
-         * Get all of the listeners for a given event name.
+         * Get all of the listeners for a given events name.
          *
          * @param string $eventName
          * @return array
@@ -5889,7 +5889,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->getListeners($eventName);
         }
                     /**
-         * Register an event listener with the dispatcher.
+         * Register an events listener with the dispatcher.
          *
          * @param \Closure|string|array $listener
          * @param bool $wildcard
@@ -6019,7 +6019,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->except($eventsToDispatch);
         }
                     /**
-         * Assert if an event has a listener attached to it.
+         * Assert if an events has a listener attached to it.
          *
          * @param string $expectedEvent
          * @param string|array $expectedListener
@@ -6031,7 +6031,7 @@ namespace Illuminate\Support\Facades {
                         $instance->assertListening($expectedEvent, $expectedListener);
         }
                     /**
-         * Assert if an event was dispatched based on a truth-test callback.
+         * Assert if an events was dispatched based on a truth-test callback.
          *
          * @param string|\Closure $event
          * @param callable|int|null $callback
@@ -6043,7 +6043,7 @@ namespace Illuminate\Support\Facades {
                         $instance->assertDispatched($event, $callback);
         }
                     /**
-         * Assert if an event was dispatched a number of times.
+         * Assert if an events was dispatched a number of times.
          *
          * @param string $event
          * @param int $times
@@ -6055,7 +6055,7 @@ namespace Illuminate\Support\Facades {
                         $instance->assertDispatchedTimes($event, $times);
         }
                     /**
-         * Determine if an event was dispatched based on a truth-test callback.
+         * Determine if an events was dispatched based on a truth-test callback.
          *
          * @param string|\Closure $event
          * @param callable|null $callback
@@ -6089,7 +6089,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->dispatched($event, $callback);
         }
                     /**
-         * Determine if the given event has been dispatched.
+         * Determine if the given events has been dispatched.
          *
          * @param string $event
          * @return bool
@@ -7472,7 +7472,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->recorded($callback);
         }
                     /**
-         * Get the current event dispatcher implementation.
+         * Get the current events dispatcher implementation.
          *
          * @return \Illuminate\Contracts\Events\Dispatcher|null
          * @static
@@ -9164,7 +9164,7 @@ namespace Illuminate\Support\Facades {
      * @see \Illuminate\Support\Testing\Fakes\QueueFake
      */        class Queue {
                     /**
-         * Register an event listener for the before job event.
+         * Register an events listener for the before job events.
          *
          * @param mixed $callback
          * @return void
@@ -9175,7 +9175,7 @@ namespace Illuminate\Support\Facades {
                         $instance->before($callback);
         }
                     /**
-         * Register an event listener for the after job event.
+         * Register an events listener for the after job events.
          *
          * @param mixed $callback
          * @return void
@@ -9186,7 +9186,7 @@ namespace Illuminate\Support\Facades {
                         $instance->after($callback);
         }
                     /**
-         * Register an event listener for the exception occurred job event.
+         * Register an events listener for the exception occurred job events.
          *
          * @param mixed $callback
          * @return void
@@ -9197,7 +9197,7 @@ namespace Illuminate\Support\Facades {
                         $instance->exceptionOccurred($callback);
         }
                     /**
-         * Register an event listener for the daemon queue loop.
+         * Register an events listener for the daemon queue loop.
          *
          * @param mixed $callback
          * @return void
@@ -9208,7 +9208,7 @@ namespace Illuminate\Support\Facades {
                         $instance->looping($callback);
         }
                     /**
-         * Register an event listener for the failed job event.
+         * Register an events listener for the failed job events.
          *
          * @param mixed $callback
          * @return void
@@ -9219,7 +9219,7 @@ namespace Illuminate\Support\Facades {
                         $instance->failing($callback);
         }
                     /**
-         * Register an event listener for the daemon queue stopping.
+         * Register an events listener for the daemon queue stopping.
          *
          * @param mixed $callback
          * @return void
@@ -12802,7 +12802,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->substituteImplicitBindingsUsing($callback);
         }
                     /**
-         * Register a route matched event listener.
+         * Register a route matched events listener.
          *
          * @param string|callable $callback
          * @return void
@@ -16110,7 +16110,7 @@ namespace Illuminate\Support\Facades {
                         $instance->flushFinderCache();
         }
                     /**
-         * Get the event dispatcher instance.
+         * Get the events dispatcher instance.
          *
          * @return \Illuminate\Contracts\Events\Dispatcher
          * @static
@@ -16120,7 +16120,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->getDispatcher();
         }
                     /**
-         * Set the event dispatcher instance.
+         * Set the events dispatcher instance.
          *
          * @param \Illuminate\Contracts\Events\Dispatcher $events
          * @return void
@@ -16285,7 +16285,7 @@ namespace Illuminate\Support\Facades {
                         $instance->endSlot();
         }
                     /**
-         * Register a view creator event.
+         * Register a view creator events.
          *
          * @param array|string $views
          * @param \Closure|string $callback
@@ -16308,7 +16308,7 @@ namespace Illuminate\Support\Facades {
                         return $instance->composers($composers);
         }
                     /**
-         * Register a view composer event.
+         * Register a view composer events.
          *
          * @param array|string $views
          * @param \Closure|string $callback

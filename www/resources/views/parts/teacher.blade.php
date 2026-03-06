@@ -3,7 +3,7 @@
         <div class="card-body">
             <h5 class="card-name">{{$teacher->name}}</h5>
             <p class="card-text">{{$teacher->status}}</p>
-            <a href="{{route('teacher.show', $event)}}" class="btn btn-primary">Перейти</a>
+            <a href="{{route('teacher.show', $teacher)}}" class="btn btn-primary">Перейти</a>
         </div>
     </div>
 </div>

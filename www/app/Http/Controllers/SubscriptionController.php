@@ -12,7 +12,7 @@ class SubscriptionController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.subscriptions.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class SubscriptionController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.subscriptions.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class SubscriptionController extends Controller
     public function show(string $id)
     {
         $subscription = Subscription::find($id);
-        return view('subscription' , [
+        return view('subscriptionShow' , [
            'subscription' => $subscription,
         ]);
     }
@@ -47,7 +47,7 @@ class SubscriptionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.subscriptions.edit');
     }
 
     /**

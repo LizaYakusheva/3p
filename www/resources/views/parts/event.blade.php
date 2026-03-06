@@ -5,7 +5,7 @@
             <p class="card-text">Цена: {{$event->price}}</p>
             <p class="card-text">Дата: {{$event->date}}</p>
             <p class="card-text">Время: {{$event->time}} мин.</p>
-            <a href="{{route('event.show', $event)}}" class="btn btn-primary">Перейти</a>
+            <a href="{{route('events.show', $event)}}" class="btn btn-primary">Перейти</a>
         </div>
     </div>
 </div>

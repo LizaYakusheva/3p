@@ -62,15 +62,13 @@ class AuthController extends Controller
 
     public function cabinet()
     {
+        $applications = Application::all();
         $events = Event::all();
-        $types = Type::all();
-        $teachers = Teacher::all();
 
         if (Auth::user()->is_admin){
             return view('auth/cabinetAdmin', [
+                'applications' => $applications,
                 'events' => $events,
-                'types' => $types,
-                'teachers' => $teachers,
             ]);
         }else{
             return view('auth/cabinet');

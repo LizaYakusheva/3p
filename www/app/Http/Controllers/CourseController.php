@@ -12,7 +12,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.courses.index');
     }
 
     /**
@@ -20,7 +20,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.courses.create');
+
     }
 
     /**
@@ -37,7 +38,7 @@ class CourseController extends Controller
     public function show(string $id)
     {
         $course = Course::find($id);
-        return view('course', [
+        return view('courseShow', [
            'course' => $course,
         ]);
     }
@@ -47,7 +48,8 @@ class CourseController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.courses.edit');
+
     }
 
     /**

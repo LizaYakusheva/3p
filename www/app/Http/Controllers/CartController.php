@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Product;
+use App\Services\CartService;
+use Auth;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -13,14 +16,46 @@ class CartController extends Controller
     public function index()
     {
         $carts = Cart::all();
+        $cartItems = Product::all();
         return view('cart', [
             'carts' => $carts,
+            'cartItems' => $cartItems
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function add($id)
+    {
+        $cartService = new cartService();
+        $result = $cartService->add($id);
+        return response()->json($result);
+        return back();
+    }
+
+    public function minus($id)
+    {
+        $cartService = new cartService();
+        $result = $cartService->minus($id);
+        return response()->json($result);
+        return back();
+    }
+
+    public function detach($id)
+    {
+        $cartService = new cartService();
+        $cartService->detach($id);
+        return back();
+    }
+
+    public function clear()
+    {
+        $cartService = new cartService();
+        $cartService->clear();
+        return back();
+    }
+
+
+
+
     public function create()
     {
         //

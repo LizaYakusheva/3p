@@ -22,4 +22,8 @@ class Application extends Model
     {
         return $this->belongsTo(Payment::class);
     }
+
+    protected $casts = [
+        'date' => 'datetime'
+    ];
 }
